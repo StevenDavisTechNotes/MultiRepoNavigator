@@ -1,0 +1,19 @@
+{
+  "name": "multi-repo-navigator",
+  "version": "1.0.0",
+  "description": "multi-repo-navigator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cspell": "^8.3.2",
+    "pyright": "^1.1.347"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

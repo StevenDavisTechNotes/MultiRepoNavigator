@@ -1,0 +1,51 @@
+{
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "editor.renderWhitespace": "all",
+    "python.analysis.exclude": [
+        "./_data",
+        "./.git",
+        "**/node_modules",
+        ".pytest_cache",
+        "./venv"
+    ],
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.autoSearchPaths": false,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.stubPath": "src\\typings",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.languageServer": "Pylance",
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.defaultInterpreterPath": "venv/bin/python",
+    "search.exclude": {
+        "./_data": true,
+        "./.git": true,
+        "**/node_modules": true,
+        ".pytest_cache": true,
+        "**/__pycache__": true,
+        "./venv": true
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line",
+            "iconColour": "#ffc0cb",
+            "foreground": "#00FF00",
+            "background": "#ffc0cb"
+        },
+        "FIXME": {
+            "icon": "beaker",
+            "iconColour": "#FF0000",
+            "foreground": "#FFFFFF",
+            "background": "#FF0000"
+        }
+    },
+}

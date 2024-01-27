@@ -1,0 +1,16 @@
+# pip freeze > frozen_requirements.txt
+# pip install -r requirements.txt
+# pip install wheel
+# pytest-xdist
+# sort -o 'requirements.txt'{,}
+autopep8
+fastapi[all]
+flake8
+psutil 
+pydantic >= 1.10.8
+pytest
+pytz 
+sqlalchemy < 2.0
+sqlalchemy[mypy] < 2.0
+typing_inspect
+wheel
