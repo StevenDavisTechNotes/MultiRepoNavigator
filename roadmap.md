@@ -11,9 +11,19 @@
 - There is an open checkbox to open the SourceFile
 - If open, there are 0 or more FunctionHeads displayed below the SourceFile
 
+## Display Function
+
+- Each Function component displays the function name and import statement
+  - Includes a copy-to-clipboard button
+- Below the Function display an indented series of related FunctionHead components
+- There is are buttons:
+  - A Sync button to apply changes to all related function implementations
+  - A Refresh button 
+
 ## Display Function Head
 
-- Each FunctionHead component displays the function name and import statement
+- Each FunctionHead component displays the function name and arguments
+  - Includes a copy-to-clipboard button
 - Below the Function Head display an indented series of related FunctionImpl components
 - There is are buttons:
   - A Sync button to apply changes to all related function implementations
@@ -22,13 +32,16 @@
 ## Display FunctionImpl
 
 - Each FunctionImpl component displays the function name and import statement
+  - Includes a copy-to-clipboard button
 - The following actions have buttons
   - Display opens a modal with the function source code
-  - Isolate opens a modal with transformed function source code
-  - Unisolate opens a modal with transformed function source code
+  - Transform opens a modal with transformed function source code
+  - Untransform opens a modal with function source code transformation reversed
 
 ## Source Code Editor
 
+- Displays the function name and arguments
+  - Includes a copy-to-clipboard button
 - The FunctionImpl opened the SourceCodeEditor component in a modal.
 - The SourceCodeEditor displays the source code of the function
 - The SourceCodeEditor has buttons:
