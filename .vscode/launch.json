@@ -6,14 +6,14 @@
     "configurations": [
         {
             "name": "Python: Module CmdVar",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "console": "integratedTerminal",
             "module": "${command:extension.commandvariable.file.relativeDirDots}.${fileBasenameNoExtension}",
         },
         {
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "cwd": "${workspaceRoot}",
@@ -24,14 +24,14 @@
         },
         {
             "name": "Web UI Backend",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "module": "web_ui.backend.main",
             "console": "integratedTerminal"
         },
         {
             "name": "Python: Current File (Original)",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
