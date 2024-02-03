@@ -21,27 +21,26 @@ python -c "import sys; print(sys.executable)"
 .\venv\Scripts\python.exe -m pip install --upgrade pip
 pip install -r .\requirements.txt
 pytest -x -vv src
-flake8 src --max-line-length 160
-clear && flake8 src && pyright src
+clear && flake8 src && node_modules/.bin/pyright src
 ```
 
 ### Python with asdf and venv
 
 ```sh
 touch .tool-versions
-asdf local python 3.12.0
+asdf local python 3.12.1
 python3 -V
-echo "Expect Python 3.12.0"
+echo "Expect Python 3.12.1"
 
 rm -rf ./venv
 find src | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
-asdf reshim python 3.12.0
+asdf reshim python 3.12.1
 python --version
 python -m venv venv
 source venv/bin/activate
 
 pip install --upgrade pip
-asdf reshim python 3.12.0
+asdf reshim python 3.12.1
 pip install wheel && pip install -r requirements.txt
 
 clear && flake8 src && py3clean src && ./node_modules/.bin/pyright src

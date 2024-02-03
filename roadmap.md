@@ -9,7 +9,7 @@
 - In the navigator replace the current <ul> with an indented series of SourceFile components
 - Each SourceFile component displays the file name and the module name (URL)
 - There is an open checkbox to open the SourceFile
-- If open, there are 0 or more FunctionHeads displayed below the SourceFile
+- If open, there are 0 or more Function displayed below the SourceFile
 
 ## Display Function
 
@@ -69,7 +69,7 @@
 - Add error handling in the Navigator if all project folders have been deleted
 - When ready, remove the remove_file_if_exists of the DATABASE_FILE_PATH
 
-## Add a file watcher to the project folders
+## Add a file watcher to the project folders (Hold off for now)
 
 - Rather than walk the source code tree with each request, add a file watcher to the project folders
 - Hold the file tree in the sqlite database source_code_cache

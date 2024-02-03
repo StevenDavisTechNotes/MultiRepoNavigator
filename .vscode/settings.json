@@ -22,9 +22,9 @@
     "python.analysis.stubPath": "src\\typings",
     "python.analysis.typeCheckingMode": "basic",
     "python.languageServer": "Pylance",
+    "python.terminal.activateEnvironment": true,
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
-    "python.defaultInterpreterPath": "venv/bin/python",
     "search.exclude": {
         "./_data": true,
         "./.git": true,
