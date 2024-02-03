@@ -10,7 +10,6 @@ psutil
 pydantic >= 1.10.8
 pytest
 pytz 
-sqlalchemy < 2.0
-sqlalchemy[mypy] < 2.0
+sqlalchemy
 typing_inspect
 wheel

@@ -60,7 +60,7 @@ def list_code_files(
     extention_regex = form_regex_for_language(project_folder.language)
     code_file_paths: list[str] = [
         abs_file_path
-        for root, dirs, files in os.walk(nearest_parent_source_path)
+        for root, _dirs, files in os.walk(nearest_parent_source_path)
         for name in files
         if (abs_file_path := os.path.join(root, name))
         if abs_file_path.startswith(abs_source_path)
@@ -72,7 +72,7 @@ def list_code_files(
     )
 
 
-def form_regex_for_language(language: str) -> re.Pattern:
+def form_regex_for_language(language: str) -> re.Pattern[str]:
     if language.lower() not in LanguageType:
         raise ValueError(f"Unknown language {language}")
     project_language = LanguageType(language)
