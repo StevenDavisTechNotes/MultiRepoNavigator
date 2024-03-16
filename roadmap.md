@@ -1,8 +1,8 @@
 # Roadmap
 
-## Project Picker
+## Navigator Debounce source_code_search
 
-- Debounce the project picker so that it waits for 25 ms before querying the backend
+- The source_code_search should wait 25 ms before fetching.
 
 ## Display Source File
 
