@@ -41,10 +41,17 @@ def initialize_database():
     for session in get_db_session():
         last_used = datetime.datetime.now().astimezone(pytz.utc)
         session.add(db_models.ProjectFolder(
-            app_name="testing_example",
+            app_name="py_repo_1",
             language="python",
             last_used=last_used,
             logical_path=absolute_to_user_relative_path(
-                os.path.join("~", "src", "testing_example")),
+                os.path.join("~", "src", "py_repo_1")),
+        ))
+        session.add(db_models.ProjectFolder(
+            app_name="py_repo_2",
+            language="python",
+            last_used=last_used,
+            logical_path=absolute_to_user_relative_path(
+                os.path.join("~", "src", "py_repo_2")),
         ))
         session.commit()

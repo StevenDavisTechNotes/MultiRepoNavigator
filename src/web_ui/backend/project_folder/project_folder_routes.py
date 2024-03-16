@@ -66,7 +66,7 @@ def patch(
         session
         .query(db_models.ProjectFolder)
         .filter_by(id=id)
-        .update(patch)
+        .update(patch)  # type: ignore
     )
     session.commit()
     return True if num_rows_updated == 1 else False
