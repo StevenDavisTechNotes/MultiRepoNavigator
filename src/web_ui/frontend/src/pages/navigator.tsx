@@ -24,7 +24,6 @@ interface IState {
 }
 
 
-
 const StyledInput = styled(Input)`
   &&& > input {
     padding-left: 8px;
@@ -34,6 +33,8 @@ const StyledInput = styled(Input)`
 `
 
 export default class NavigatorPage extends React.Component<IProps, IState> {
+    private debouncePromise: NodeJS.Timeout | undefined;
+
     constructor(props: IProps) {
         super(props);
 
@@ -42,8 +43,9 @@ export default class NavigatorPage extends React.Component<IProps, IState> {
             projects: [],
             sourceCodeSearchPath: "",
         };
-    }
 
+        this.debouncePromise = undefined;
+    }
 
     componentDidMount() {
         logger.info('Starting to download Project Folder data')
@@ -55,6 +57,7 @@ export default class NavigatorPage extends React.Component<IProps, IState> {
                 this.setState({ projects, selectedProject });
             });
     }
+
 
     onSelectProject = (project: IProject) => {
         logger.info(`Selected ${project.logical_path} project`)
@@ -77,17 +80,21 @@ export default class NavigatorPage extends React.Component<IProps, IState> {
 
     }
 
+
     onSourceCodeSearch(event: React.SyntheticEvent<HTMLInputElement>) {
         let sourceCodeSearchPath = event.currentTarget.value;
         this.setState({ sourceCodeSearchPath, files: [] });
         if (this.state.selectedProject != null) {
-            fetchSourceCodeUnderPath(sourceCodeSearchPath, this.state.selectedProject)
-                .then(([project_folder, source_code_files]) => {
-                    this.setState({ files: source_code_files });
-                })
+            clearTimeout(this.debouncePromise);
+            this.debouncePromise = setTimeout(() => {
+                fetchSourceCodeUnderPath(sourceCodeSearchPath, this.state.selectedProject)
+                    .then(([project_folder, source_code_files]) => {
+                        this.setState({ files: source_code_files });
+                    })
+            }, 25);
         }
-
     }
+
 
     render() {
         let { files, projects, selectedProject } = this.state;
