@@ -12,9 +12,11 @@ cd src/web_ui/frontend; npm install
 
 uvicorn src.web_ui.backend.main:app --reload --port 4059 --reload-dir src --reload-exclude src/web_ui/frontend
 ### From Linux / WSL
-cd src/web_ui/frontend; npm start
+cd src/web_ui/frontend
+npm start
 ### From Windows
-cd src\web_ui\frontend; npm run windows-start
+cd src\web_ui\frontend
+npm run windows-start
 <http://127.0.0.1:4059/docs>
 <http://localhost:4060/>
 

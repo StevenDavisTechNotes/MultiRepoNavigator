@@ -14,6 +14,9 @@
     "pyright": "^1.1.347"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "@types/react": "^18.2.54",
+    "lodash": "^4.17.21",
+    "semantic-ui-react": "^2.1.5",
+    "styled-components": "^6.1.8"
   }
 }

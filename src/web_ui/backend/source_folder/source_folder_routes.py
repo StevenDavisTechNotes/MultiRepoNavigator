@@ -24,7 +24,7 @@ router = APIRouter(
 @router.get("/list_code_files", response_model=api_models.ListCodeFilesResponse,)
 def list_code_files(
         abs_or_rel_source_path: str = "m",
-        selected_project_folder: str | None = "~\\src\\testing_example",
+        selected_project_folder: str | None = "~\\src\\py_repo_1",
         db_session: Session = Depends(get_db_session),
 ) -> api_models.ListCodeFilesResponse | api_models.ListCodeFilesErrorResponse:
     all_project_folders: list[api_models.ProjectFolder] = [

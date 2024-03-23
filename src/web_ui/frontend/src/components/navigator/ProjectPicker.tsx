@@ -30,6 +30,7 @@ const StyledDropdown = styled(Dropdown)`
 
 export default class ProjectPicker extends React.Component<IProps, IState> {
     constructor(props: IProps) {
+        //TODO: Add promise for 25 ms delay.
         super(props);
 
         this.state = {

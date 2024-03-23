@@ -28,19 +28,19 @@ clear && flake8 src && node_modules/.bin/pyright src
 
 ```sh
 touch .tool-versions
-asdf local python 3.12.1
+asdf local python 3.12.2
 python3 -V
-echo "Expect Python 3.12.1"
+echo "Expect Python 3.12.2"
 
 rm -rf ./venv
 find src | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
-asdf reshim python 3.12.1
+asdf reshim python 3.12.2
 python --version
 python -m venv venv
 source venv/bin/activate
 
 pip install --upgrade pip
-asdf reshim python 3.12.1
+asdf reshim python 3.12.2
 pip install wheel && pip install -r requirements.txt
 
 clear && flake8 src && py3clean src && ./node_modules/.bin/pyright src
