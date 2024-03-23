@@ -84,8 +84,8 @@ export default class NavigatorPage extends React.Component<IProps, IState> {
     onSourceCodeSearch(event: React.SyntheticEvent<HTMLInputElement>) {
         let sourceCodeSearchPath = event.currentTarget.value;
         this.setState({ sourceCodeSearchPath, files: [] });
+        clearTimeout(this.debouncePromise);
         if (this.state.selectedProject != null) {
-            clearTimeout(this.debouncePromise);
             this.debouncePromise = setTimeout(() => {
                 fetchSourceCodeUnderPath(sourceCodeSearchPath, this.state.selectedProject)
                     .then(([project_folder, source_code_files]) => {
