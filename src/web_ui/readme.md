@@ -16,7 +16,7 @@ cd src/web_ui/frontend
 npm start
 ### From Windows
 cd src\web_ui\frontend
-npm run windows-start
+npm start
 <http://127.0.0.1:4059/docs>
 <http://localhost:4060/>
 
