@@ -1,5 +1,7 @@
 # Multi Repo Navigator
 
+<!-- cspell: ignore venv pycache childitem pytest reshim pyright -->
+
 ## Overview
 
 Modern IDEs do a great job of navigating the code within one projects.  Maintaining file relationships across multiple repositories in different languages is a challenge.  This project is an attempt to create a tool to help with that.
@@ -17,6 +19,7 @@ rm venv -r # to remove the venv folder
 get-childitem src -include __pycache__ -recurse | remove-item -Force -Recurse
 py -3.12 -m venv venv 
 .\venv\Scripts\Activate.ps1
+python --version
 python -c "import sys; print(sys.executable)"
 .\venv\Scripts\python.exe -m pip install --upgrade pip
 pip install -r .\requirements.txt
@@ -28,45 +31,48 @@ clear && flake8 src && node_modules/.bin/pyright src
 
 ```sh
 touch .tool-versions
-asdf local python 3.12.2
+asdf local python 3.12.4
 python3 -V
-echo "Expect Python 3.12.2"
+echo "Expect Python 3.12.4"
 
 rm -rf ./venv
 find src | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
-asdf reshim python 3.12.2
+asdf reshim python 3.12.4
 python --version
 python -m venv venv
 source venv/bin/activate
 
 pip install --upgrade pip
-asdf reshim python 3.12.2
+asdf reshim python 3.12.4
 pip install wheel && pip install -r requirements.txt
 
 clear && flake8 src && py3clean src && ./node_modules/.bin/pyright src
 ```
 
-## for asdf and Javascript
+### for asdf and Javascript
 
 ```sh
 asdf local nodejs 20.9.0
 npm install
 ```
 
-## Sqlite Tools
+### Sqlite Tools
 
 To view and edit the database directly
 
-### Download and install the Sqlite Tools
+#### Download and install the Sqlite Tools
 
-#### For Windows
+##### For Windows
 
 - Navigate to [https://www.sqlite.org/download.html](Sqlite Downloads)
 - Install the sqlite-tools-win32-x86-3360000.zip to `C:\Programs\Sqlite`
 - Add `C:\Programs\Sqlite` to your path using Edit Environment Variables for Your Account
 - Close and reopen your terminal
 
-#### For Linux
+##### For Linux
 
 `sudo apt-get install sqlite3`
 
+## Development
+
+Please take a look at this [readme.md](src\web_ui\readme.md)
