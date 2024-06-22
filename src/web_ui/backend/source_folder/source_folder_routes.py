@@ -1,10 +1,11 @@
+# cSpell: ignore fastapi
 
 import os
 import re
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from src.language import SOURCE_CODE_EXTENTIONS, LanguageType
+from src.language import SOURCE_CODE_EXTENSIONS, LanguageType
 
 from src.web_ui.backend import api_models, db_models
 from src.web_ui.backend.database import get_db_session
@@ -54,21 +55,25 @@ def list_code_files(
             project_folder=None,
         )
 
+    project_path = os.path.expanduser(project_folder.logical_path)
     nearest_parent_source_path = (
         deduce_nearest_existing_source_path(abs_source_path)
-        or os.path.expanduser(project_folder.logical_path))
-    extention_regex = form_regex_for_language(project_folder.language)
-    code_file_paths: list[str] = [
-        abs_file_path
-        for root, _dirs, files in os.walk(nearest_parent_source_path)
-        for name in files
-        if (abs_file_path := os.path.join(root, name))
-        if abs_file_path.startswith(abs_source_path)
-        if extention_regex.search(abs_file_path) is not None
-    ]
+        or project_path)
+    extension_regex = form_regex_for_language(project_folder.language)
+    code_file_paths: list[str] = []
+    for root, _dirs, files in os.walk(nearest_parent_source_path):
+        for name in files:
+            abs_file_path = os.path.join(root, name)
+            if not abs_file_path.startswith(abs_source_path):
+                continue
+            if extension_regex.search(abs_file_path) is None:
+                continue
+            if len(code_file_paths) >= 100:
+                break
+            code_file_paths.append(os.path.relpath(abs_file_path, project_path))
     return api_models.ListCodeFilesResponse(
         project_folder=project_folder,
-        code_file_paths=code_file_paths[:100],
+        code_file_paths=code_file_paths,
     )
 
 
@@ -76,10 +81,10 @@ def form_regex_for_language(language: str) -> re.Pattern[str]:
     if language.lower() not in LanguageType:
         raise ValueError(f"Unknown language {language}")
     project_language = LanguageType(language)
-    if project_language not in SOURCE_CODE_EXTENTIONS:
-        raise ValueError(f"Missing an extention lists for {language}")
-    extension_list = SOURCE_CODE_EXTENTIONS[project_language]
+    if project_language not in SOURCE_CODE_EXTENSIONS:
+        raise ValueError(f"Missing an extension lists for {language}")
+    extension_list = SOURCE_CODE_EXTENSIONS[project_language]
     extension_pattern_list = [x.replace('.', '') for x in extension_list]
     pattern = r"\.(" + "|".join(extension_pattern_list) + ")$"
-    extention_regex = re.compile(pattern)
-    return extention_regex
+    extension_regex = re.compile(pattern)
+    return extension_regex
