@@ -7,7 +7,7 @@ class LanguageType(Enum):
     PYTHON = "python"
 
 
-SOURCE_CODE_EXTENTIONS = {
-    LanguageType.ELIXIR: elixir.SOURCE_CODE_EXTENTIONS,
-    LanguageType.PYTHON: python.SOURCE_CODE_EXTENTIONS,
+SOURCE_CODE_EXTENSIONS = {
+    LanguageType.ELIXIR: elixir.SOURCE_CODE_EXTENSIONS,
+    LanguageType.PYTHON: python.SOURCE_CODE_EXTENSIONS,
 }

@@ -1,5 +1,7 @@
 # Roadmap
 
+<!-- cSpell: ignore -->
+
 ## Navigator Debounce source_code_search
 
 - The source_code_search should wait 25 ms before fetching.
@@ -36,7 +38,7 @@
 - The following actions have buttons
   - Display opens a modal with the function source code
   - Transform opens a modal with transformed function source code
-  - Untransform opens a modal with function source code transformation reversed
+  - Reverse transform opens a modal with function source code transformation reversed
 
 ## Source Code Editor
 
@@ -64,7 +66,7 @@
   - Clicking a known project folder populates the form
 - There is a button to save the project folder
 - There is a button to delete the project folder
-- Upen save/delete the project folder list is requeried
+- Upon save/delete the project folder list is updated
 - There is a button to close the page and return to the Navigator
 - Add error handling in the Navigator if all project folders have been deleted
 - When ready, remove the remove_file_if_exists of the DATABASE_FILE_PATH

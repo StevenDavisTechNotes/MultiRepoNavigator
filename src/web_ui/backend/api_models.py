@@ -1,3 +1,5 @@
+# cSpell: ignore pydantic
+
 import datetime
 
 from pydantic import BaseModel

@@ -1,1 +1,1 @@
-SOURCE_CODE_EXTENTIONS = [".ex", ".exs"]
+SOURCE_CODE_EXTENSIONS = [".ex", ".exs"]
