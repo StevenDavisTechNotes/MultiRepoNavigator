@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import sessionmaker as session_maker
 
-# cSpell: ignore sessionmaker
+# cSpell: ignore sessionmaker, pytz
 from src.utils.file_handling import (absolute_to_user_relative_path,
                                      mkdir_if_not_exists, remove_file_if_exists)
 from src.web_ui.backend import db_models
@@ -45,13 +45,13 @@ def initialize_database():
             language="python",
             last_used=last_used,
             logical_path=absolute_to_user_relative_path(
-                os.path.join("~", "src", "py_repo_1")),
+                os.path.join("~", "src", "testing_example", "py_repo_1")),
         ))
         session.add(db_models.ProjectFolder(
             app_name="py_repo_2",
             language="python",
             last_used=last_used,
             logical_path=absolute_to_user_relative_path(
-                os.path.join("~", "src", "py_repo_2")),
+                os.path.join("~", "src", "testing_example", "py_repo_2")),
         ))
         session.commit()
