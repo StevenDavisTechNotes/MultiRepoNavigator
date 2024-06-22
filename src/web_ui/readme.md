@@ -12,9 +12,16 @@ cd src/web_ui/frontend; npm install
 
 uvicorn src.web_ui.backend.main:app --reload --port 4059 --reload-dir src --reload-exclude src/web_ui/frontend
 ### From Linux / WSL
+
+```sh
 cd src/web_ui/frontend
 npm start
+
+```
+
 ### From Windows
+
+```ps1
 cd src\web_ui\frontend
 npm start
 <http://127.0.0.1:4059/docs>
@@ -27,3 +34,5 @@ sqlite> .tables
 func_def_fav    project_folder
 sqlite> select * from project_folder;
 sqlite> .quit
+
+```

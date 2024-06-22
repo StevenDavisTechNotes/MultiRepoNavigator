@@ -26,7 +26,7 @@
             "name": "Web UI Backend",
             "type": "debugpy",
             "request": "launch",
-            "module": "web_ui.backend.main",
+            "module": "src.web_ui.backend.main",
             "console": "integratedTerminal"
         },
         {
