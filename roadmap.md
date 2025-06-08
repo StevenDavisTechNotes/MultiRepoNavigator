@@ -1,7 +1,5 @@
 # Roadmap
 
-<!-- cSpell: ignore -->
-
 ## Navigator Debounce source_code_search
 
 - The source_code_search should wait 25 ms before fetching.

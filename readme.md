@@ -16,6 +16,7 @@ Copy the folder `testing_example` to `~/src/testing_example` or `(Join-Path $Env
 
 ```ps1
 rm venv -r # to remove the venv folder
+rm __pycache__ -r 
 get-childitem src -include __pycache__ -recurse | remove-item -Force -Recurse
 py -3.12 -m venv venv 
 .\venv\Scripts\Activate.ps1
@@ -47,6 +48,7 @@ asdf reshim python 3.12.4
 pip install wheel && pip install -r requirements.txt
 
 clear && flake8 src && py3clean src && ./node_modules/.bin/pyright src
+& "cspell-cli" "**/*.py" "--no-summary" "--no-progress" "--exclude" "__pycache__" "--exclude" ".git" "--exclude" "venv" "--exclude" "node_modules" "--fail-fast"
 ```
 
 ### for asdf and Javascript
